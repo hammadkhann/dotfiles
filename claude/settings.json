@@ -135,6 +135,15 @@
     ],
     "PreToolUse": [
       {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.local/bin/dcg"
+          }
+        ]
+      },
+      {
         "matcher": "*",
         "hooks": [
           {
