@@ -1,0 +1,76 @@
+---
+description: Practices for writing robust Python code with AI assistance — types, testing, error handling, complexity control
+globs: **/*.py
+alwaysApply: false
+---
+
+# Agentic Engineering Practices
+
+Slow and steady wins the race. Speed is abundant with AI — correctness is the bottleneck.
+Aim for a codebase that looks like what an expert team would produce.
+
+## Types: Strict and Everywhere
+
+- Run Pyright before tests. Never skip the type checker.
+- Annotate all class attributes in the class body, not just in `__init__`:
+
+```python
+# BAD — assignment to foo.bar won't be caught by type checker
+class Foo:
+    def __init__(self, bar: str) -> None:
+        self.bar = bar
+
+# GOOD
+class Foo:
+    bar: str
+    def __init__(self, bar: str) -> None:
+        self.bar = bar
+```
+
+- Use dataclasses or Pydantic models instead of dicts for structured data. `record.name` over `record["name"]`.
+- Scrutinise `Optional` and union types — there must be a real reason a value can be `None`.
+- When debugging, prefer *narrowing* types over *broadening* them. Broadening a function to pass a test is almost always wrong.
+- If a variable assignment needs a type annotation inside a function, that's a smell — inputs and return types should propagate.
+
+## Complexity Control
+
+- Validate and normalize external input at the boundary. Convert variations into a single canonical form immediately.
+- All functions must know what constitutes valid input. Document invariants (e.g., "these two lists must be equal length").
+- Functions receiving invalid input must raise, never silently proceed. Blame should land near the crime scene.
+
+## Error Handling
+
+- No broad `except Exception` handlers scattered through the code. Handle specific exceptions.
+- Exactly one statement under `try`. Catch-all error handling belongs at the top of the stack (e.g., request handler), not at every layer.
+- Never suppress errors to make code "resilient" — that hides bugs and causes failure spirals.
+
+## Pure Functions
+
+- Prefer returning values over mutating inputs or object state.
+- Side-effect-free functions are independently testable — that's the goal.
+- If a function must have side effects, isolate them clearly.
+
+## Testing
+
+- Use `pytest.mark.parametrize` to test across a range of inputs, not just the happy path.
+- Include tests for invalid inputs — verify that the function raises on bad data.
+- Coverage over input values matters more than line coverage, but track line coverage with `pytest-cov` to catch blind spots.
+- Test functions in isolation. Avoid tests that require calling A, then B, then C in sequence.
+
+## Sneaky Quokka Detection
+
+Watch for these evasion patterns when the AI debugs failing tests:
+
+1. **Loosening assertions** — suggesting wider tolerances or accuracy thresholds instead of fixing the root cause.
+2. **Skipping failures** — proposing to skip or filter out failing cases without full justification.
+3. **Broadening types** — making a function accept `Any` or adding union types just to silence errors.
+4. **Swallowing exceptions** — wrapping code in try/except to hide the real problem.
+
+When you see these, stop. Ask "what is actually wrong?" and insist on a proper fix.
+
+## Anti-Patterns to Reject
+
+- Don't let the AI bounce between failures — if a fix doesn't work, stop and reason about root cause.
+- Don't paste errors back blindly — understand the error before acting.
+- Don't let optimistic prompting substitute for careful design.
+- Don't accept changes you don't understand.

@@ -1,0 +1,66 @@
+{
+  "anthropic-agent-skills": {
+    "source": {
+      "source": "github",
+      "repo": "anthropics/skills"
+    },
+    "installLocation": "/Users/muhakhan/.claude/plugins/marketplaces/anthropic-agent-skills",
+    "lastUpdated": "2025-12-17T16:50:05.346Z"
+  },
+  "claude-plugins-official": {
+    "source": {
+      "source": "github",
+      "repo": "anthropics/claude-plugins-official"
+    },
+    "installLocation": "/Users/muhakhan/.claude/plugins/marketplaces/claude-plugins-official",
+    "lastUpdated": "2026-03-01T23:24:13.410Z"
+  },
+  "llm-council": {
+    "source": {
+      "source": "github",
+      "repo": "xrf9268-hue/llm-council-plugin"
+    },
+    "installLocation": "/Users/muhakhan/.claude/plugins/marketplaces/llm-council",
+    "lastUpdated": "2026-01-13T12:43:13.087Z"
+  },
+  "gmickel-claude-marketplace": {
+    "source": {
+      "source": "git",
+      "url": "https://github.com/gmickel/gmickel-claude-marketplace.git"
+    },
+    "installLocation": "/Users/muhakhan/.claude/plugins/marketplaces/gmickel-claude-marketplace",
+    "lastUpdated": "2026-01-14T13:45:15.857Z"
+  },
+  "shanev-skills": {
+    "source": {
+      "source": "github",
+      "repo": "shanev/skills"
+    },
+    "installLocation": "/Users/muhakhan/.claude/plugins/marketplaces/shanev-skills",
+    "lastUpdated": "2026-01-19T15:08:38.163Z"
+  },
+  "trailofbits": {
+    "source": {
+      "source": "github",
+      "repo": "trailofbits/skills"
+    },
+    "installLocation": "/Users/muhakhan/.claude/plugins/marketplaces/trailofbits",
+    "lastUpdated": "2026-01-27T18:29:58.980Z"
+  },
+  "thedotmack": {
+    "source": {
+      "source": "github",
+      "repo": "thedotmack/claude-mem"
+    },
+    "installLocation": "/Users/muhakhan/.claude/plugins/marketplaces/thedotmack",
+    "lastUpdated": "2026-02-24T16:55:25.277Z"
+  },
+  "optimize-anything": {
+    "source": {
+      "source": "github",
+      "repo": "ASRagab/optimize-anything"
+    },
+    "installLocation": "/Users/muhakhan/.claude/plugins/marketplaces/optimize-anything",
+    "lastUpdated": "2026-03-01T23:16:32.937Z"
+  }
+}

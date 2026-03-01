@@ -1,0 +1,5 @@
+---
+description: Suggest the single smartest, most innovative addition to the current plan
+---
+
+What's the single smartest and most radically innovative and accretive and useful and compelling addition you could make to the plan at this point?

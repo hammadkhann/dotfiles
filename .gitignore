@@ -1,0 +1,27 @@
+# Secrets
+*.credentials.json
+auth.json
+settings.local.json
+mcp.json
+
+# Caches and runtime
+*.cache.json
+*.lock
+history.jsonl
+usage-data/
+statsig/
+cache/
+ide/
+sessions/
+archived_sessions/
+log/
+tmp/
+worktrees/
+state/
+*.sqlite*
+*.db
+*.ogg
+
+# OS
+.DS_Store
+Thumbs.db

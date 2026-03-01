@@ -1,0 +1,1 @@
+Are we solving symptoms, or are we solving ROOT problems in the architecture design/decision? Also what breaks if we revert this fix in 6 months?

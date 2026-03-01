@@ -1,0 +1,60 @@
+---
+name: UI Design Brain
+description: Generate production-grade UI using real component patterns and best practices from 60+ documented interface components. Ensures modern, minimal, SaaS-quality output grounded in design system conventions.
+globs: ["**/*.tsx", "**/*.jsx", "**/*.vue", "**/*.svelte", "**/*.html", "**/*.css"]
+---
+
+# UI Design Brain
+
+Curated knowledge base of 60+ UI component patterns. Replaces generic guessing with real design-system knowledge.
+
+**Before writing any UI code**, consult the full reference at `~/.claude/skills/ui-design-brain/components.md`.
+
+## Design Philosophy
+
+1. **Restraint over decoration.** Fewer elements, highly refined. White space is a feature.
+2. **Typography carries hierarchy.** Pair distinctive display font with clean body font. Maximize weight contrast.
+3. **One strong color moment.** Neutral palette first (warm off-whites, near-blacks, muted mid-tones). One confident accent.
+4. **Spacing is structure.** 8 px grid. Tighter gaps group related; generous gaps let content breathe.
+5. **Accessibility is non-negotiable.** WCAG AA contrast, focus indicators, semantic HTML, keyboard nav.
+6. **No generic AI aesthetics.** Avoid: purple-on-white gradients, Inter/Roboto defaults, evenly-spaced card grids.
+
+## Style Presets
+
+| Preset | Character |
+|--------|-----------|
+| **Modern SaaS** (default) | Neutral palette, one accent, 8px grid, generous whitespace |
+| **Apple Minimal** | Near-monochrome, warm grays, large type, micro-interactions |
+| **Enterprise** | Information-dense, compact spacing (4/8/12/16/24px), fully keyboard-navigable |
+| **Creative** | Bold, asymmetric layouts, dramatic scale contrast, editorial typography |
+| **Data Dashboard** | Data-dense, consistent vertical alignment, clear KPI → trend → detail hierarchy |
+
+## Code Standards
+
+```
+Stack:       React + Tailwind CSS (unless specified otherwise)
+Spacing:     Tailwind spacing scale on 8px grid
+Colors:      CSS variables or Tailwind config for consistency
+Typography:  Tailwind text utilities + Google Fonts pairings
+States:      hover, focus, active, disabled for all interactive elements
+Responsive:  Mobile-first; test at 375, 768, 1440px
+Accessibility: Semantic HTML, ARIA, focus management
+```
+
+## Anti-Patterns (Never Generate)
+
+- Rainbow badges with no semantic meaning
+- Modal inside modal — use page or drawer
+- Disabled submit with no explanation
+- Spinner for predictable layouts — use skeleton screens
+- "Click here" links
+- Hamburger menu on desktop
+- Auto-advancing carousels
+- Placeholder-only form fields
+- Equal-weight buttons — establish primary/secondary/tertiary
+- Body text < 14px
+
+## Full Reference
+
+Complete 60+ component reference with best practices, aliases, and layout examples:
+`~/.claude/skills/ui-design-brain/components.md`

@@ -1,0 +1,79 @@
+---
+name: Visual Explainer
+description: Generate self-contained HTML pages for technical diagrams, architecture overviews, data tables, and visual explanations. Replaces ASCII art with browser-rendered visualizations.
+globs: ["**/*.html"]
+---
+
+# Visual Explainer
+
+Generate self-contained HTML files for technical diagrams, visualizations, and data tables. Always open the result in the browser. Never fall back to ASCII art when this rule is active.
+
+**Proactive table rendering.** When presenting tabular data (comparisons, audits, feature matrices, status reports), generate an HTML page instead of ASCII tables. Threshold: 4+ rows or 3+ columns → HTML page.
+
+## Workflow
+
+### 1. Think
+
+Before writing HTML, commit to a direction:
+
+**Constrained aesthetics (prefer these):**
+- Blueprint — technical drawing feel, subtle grid background, deep slate/blue palette, monospace labels
+- Editorial — serif headlines (Instrument Serif, Crimson Pro), generous whitespace, muted earth tones or deep navy + gold
+- Paper/ink — warm cream `#faf7f5` background, terracotta/sage accents, informal feel
+- Monochrome terminal — green/amber on near-black, monospace everything
+
+**Flexible aesthetics (use with caution):**
+- IDE-inspired — use a real named color scheme: Dracula, Nord, Catppuccin, Solarized, Gruvbox, One Dark, Rosé Pine
+- Data-dense — small type, tight spacing, maximum information, muted colors
+
+**Forbidden:**
+- Neon dashboard (cyan + magenta + purple on dark)
+- Gradient mesh (pink/purple/cyan blobs)
+- Inter font + violet/indigo accents + gradient text
+
+### 2. Structure
+
+**Rendering approach by content type:**
+
+| Content type | Approach |
+|---|---|
+| Architecture (text-heavy) | CSS Grid cards + flow arrows |
+| Architecture (topology) | Mermaid |
+| Flowchart / pipeline | Mermaid |
+| Sequence diagram | Mermaid |
+| Data table | HTML `<table>` |
+| Timeline | CSS (central line + cards) |
+| Dashboard | CSS Grid + Chart.js |
+
+### 3. Build
+
+- Single self-contained HTML file, no external dependencies except CDN libs
+- Use Google Fonts CDN for typography
+- Include light/dark theme toggle
+- All CSS inline in `<style>`, all JS inline in `<script>`
+- Responsive: works on mobile and desktop
+- For Mermaid diagrams: load from CDN, use `securityLevel: 'loose'`
+
+### 4. Verify
+
+Before saving, check:
+- File renders in browser without errors
+- All interactive elements work (theme toggle, nav, tooltips)
+- Text is readable at default zoom
+- Mobile layout doesn't overflow
+
+### Output
+
+Write files to `~/.agent/diagrams/filename.html` and open in browser.
+
+## Reference Material
+
+Full skill with templates, CSS patterns, and references lives at:
+`~/.claude/skills/visual-explainer/`
+
+Key files:
+- `SKILL.md` — complete workflow and design principles
+- `references/css-patterns.md` — CSS/layout patterns and SVG connectors
+- `references/libraries.md` — external library configs
+- `references/responsive-nav.md` — section navigation patterns
+- `templates/*.html` — reference templates for different page types
